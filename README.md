@@ -68,6 +68,22 @@ Manage users, events, venues, and generate event participation reports.
 - JWT for session tokens
 
 ---
+## ✨ Dashboard 
+<table>
+  <tr>
+    <td><img src="<img width="1903" height="914" alt="Screenshot 2025-09-07 024232" src="https://github.com/user-attachments/assets/9dd05d43-1510-477f-a4e6-c2991d83b62a" />
+" alt="Image 1" width="250" /></td>
+    <td><img src="<img width="1898" height="901" alt="Screenshot 2025-09-07 023916" src="https://github.com/user-attachments/assets/1364d48c-4a86-45ae-bcf5-cf34fee8c66c" />
+" alt="Image 2" width="250" /></td>
+  </tr>
+  <tr>
+    <td><img src="<img width="1886" height="909" alt="Screenshot 2025-09-07 023955" src="https://github.com/user-attachments/assets/2f710644-eeab-4f06-b3cd-d35e515366f0" />
+" alt="Image 3" width="250" /></td>
+    <td><img src="<img width="1410" height="905" alt="Screenshot 2025-09-07 024054" src="https://github.com/user-attachments/assets/033ca379-2ab5-4a63-8d3b-1162d4422d65" />
+" alt="Image 4" width="250" /></td>
+  </tr>
+</table>
+
 
 ## 🗂️ Key Components
 
