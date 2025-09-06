@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Campus Event Management</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #121212;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0d47a1, #1976d2);
+      color: #fff;
+      padding: 15px 30px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      font-size: 24px;
+    }
+
+    header button {
+      background: #ff3d00;
+      border: none;
+      padding: 10px 20px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: background 0.3s ease;
+    }
+
+    header button:hover {
+      background: #d32f2f;
+    }
+
+    main {
+      padding: 30px 15px;
+      max-width: 960px;
+      margin: auto;
+      flex-grow: 1;
+    }
+
+    /* Login Form */
+    form {
+      max-width: 360px;
+      margin: 60px auto;
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #90caf9;
+      font-size: 14px;
+    }
+
+    input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 8px;
+      background: #333333;
+      color: #eee;
+      font-size: 16px;
+      margin-bottom: 20px;
+      transition: background 0.3s ease;
+    }
+
+    input[type="email"]:focus, input[type="password"]:focus {
+      outline: none;
+      background: #455a64;
+    }
+
+    button.login-btn {
+      background: #1976d2;
+      border: none;
+      width: 100%;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 25px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(25, 118, 210, 0.6);
+      transition: background 0.3s ease;
+    }
+
+    button.login-btn:hover {
+      background: #0d47a1;
+    }
+
+    .error-msg {
+      color: #ef5350;
+      font-weight: 600;
+      margin-top: -15px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    /* Dashboard */
+    #dashboard {
+      display: none;
+    }
+
+    h2 {
+      border-bottom: 2px solid #1976d2;
+      padding-bottom: 10px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: #64b5f6;
+    }
+
+    .card {
+      background: #1f1f1f;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+      margin-bottom: 25px;
+    }
+
+    .card strong {
+      color: #90caf9;
+    }
+
+    .events-list, .registrations-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .event-card {
+      background: #333;
+      padding: 15px;
+      border-radius: 12px;
+      transition: transform 0.2s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(25, 118, 210, 0.65);
+    }
+
+    .event-name {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #90caf9;
+      font-size: 1.1em;
+    }
+
+    .event-info {
+      font-size: 0.9em;
+      margin-bottom: 6px;
+    }
+
+    .event-btn {
+      background: #1976d2;
+      border: none;
+      width: 100%;
+      padding: 8px 0;
+      border-radius: 20px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .event-btn:disabled {
+      background: #555;
+      cursor: not-allowed;
+    }
+
+    .event-btn:hover:not(:disabled) {
+      background: #0d47a1;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Campus Event Management</h1>
+  <button id="logout-btn" style="display:none;">Logout</button>
+</header>
+
+<main>
+  <!-- Login Section -->
+  <section id="login-section">
+    <form id="login-form">
+      <h2>Login</h2>
+      <label for="email">Email</label>
+      <input type="email" id="email" autocomplete="username" required placeholder="you@example.com" />
+      <label for="password">Password</label>
+      <input type="password" id="password" autocomplete="current-password" required placeholder="Your password" />
+      <button type="submit" class="login-btn">Login</button>
+      <div class="error-msg" id="login-error"></div>
+    </form>
+  </section>
+
+  <!-- Dashboard Section -->
+  <section id="dashboard">
+    <h2>Welcome, <span id="student-name"></span></h2>
+
+    <div class="card" id="student-info-card">
+      <h3>Student Information</h3>
+      <p><strong>Email:</strong> <span id="student-email"></span></p>
+      <p><strong>Role:</strong> <span id="student-role"></span></p>
+    </div>
+
+    <div class="card" id="available-events-section">
+      <h3>Available Events</h3>
+      <div class="events-list" id="available-events-list"></div>
+    </div>
+
+    <div class="card" id="registered-events-section">
+      <h3>Registered Events</h3>
+      <div class="registrations-list" id="registered-events-list"></div>
+    </div>
+  </section>
+</main>
+
+<script>
+  const loginForm = document.getElementById('login-form');
+  const loginError = document.getElementById('login-error');
+  const loginSection = document.getElementById('login-section');
+  const dashboard = document.getElementById('dashboard');
+  const logoutBtn = document.getElementById('logout-btn');
+  const studentNameSpan = document.getElementById('student-name');
+  const studentEmailSpan = document.getElementById('student-email');
+  const studentRoleSpan = document.getElementById('student-role');
+  const availableEventsList = document.getElementById('available-events-list');
+  const registeredEventsList = document.getElementById('registered-events-list');
+
+  let currentUser = null;
+  let currentToken = null;
+
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    loginError.textContent = '';
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+
+    try {
+      const res = await fetch('http://127.0.0.1:5000/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        currentToken = data.token;
+        localStorage.setItem('token', currentToken);
+        currentUser = {
+          id: data.user_id,
+          role: data.role,
+          email: email,
+          name: '', // will fetch separately
+        };
+        await fetchStudentInfo(currentUser.id);
+        await fetchAvailableEvents();
+        await fetchRegisteredEvents();
+        showDashboard();
+      } else {
+        loginError.textContent = data.message || 'Login failed';
+      }
+    } catch (error) {
+      loginError.textContent = 'Network error';
+      console.error(error);
+    }
+  });
+
+  async function fetchStudentInfo(userId) {
+    try {
+      const res = await fetch(`http://127.0.0.1:5000/users/${userId}`, {
+        headers: { 'Authorization': 'Bearer ' + currentToken }
+      });
+      const data = await res.json();
+      if (res.ok) {
+        currentUser.name = data.email; // or you can add name from backend if available
+        studentNameSpan.textContent = currentUser.name;
+        studentEmailSpan.textContent = data.email;
+        studentRoleSpan.textContent = data.role;
+      } else {
+        alert('Failed to fetch student info');
+      }
+    } catch {
+      alert('Network error fetching student info');
+    }
+  }
+
+  async function fetchAvailableEvents() {
+    try {
+      const res = await fetch('http://127.0.0.1:5000/events', {
+        headers: { 'Authorization': 'Bearer ' + currentToken }
+      });
+      const data = await res.json();
+      if (res.ok) {
+        renderEvents(data.events);
+      } else {
+        alert('Failed to fetch events');
+      }
+    } catch (error) {
+      alert('Network error fetching events');
+      console.error(error);
+    }
+  }
+
+  function renderEvents(events) {
+    availableEventsList.innerHTML = '';
+    if (!events || events.length === 0) {
+      availableEventsList.innerHTML = '<p>No available events at the moment.</p>';
+      return;
+    }
+    events.forEach(event => {
+      const evt = document.createElement('div');
+      evt.className = 'event-card';
+      evt.innerHTML = `
+        <div class="event-name">${event.event_name}</div>
+        <div class="event-info"><strong>College:</strong> ${event.college_name}</div>
+        <div class="event-info"><strong>Type:</strong> ${event.event_type}</div>
+        <div class="event-info"><strong>Start:</strong> ${new Date(event.start_datetime).toLocaleString()}</div>
+        <div class="event-info"><strong>End:</strong> ${new Date(event.end_datetime).toLocaleString()}</div>
+        <div class="event-info"><strong>Registrations:</strong> ${event.total_registrations} / ${event.max_capacity}</div>
+        <button class="event-btn" ${event.total_registrations >= event.max_capacity ? 'disabled' : ''} onclick="registerEvent(${event.event_id})">
+          ${event.total_registrations >= event.max_capacity ? 'Full' : 'Register'}
+        </button>
+      `;
+      availableEventsList.appendChild(evt);
+    });
+  }
+
+  async function fetchRegisteredEvents() {
+    try {
+      const res = await fetch('http://127.0.0.1:5000/registrations', {
+        headers: { 'Authorization': 'Bearer ' + currentToken }
+      });
+      const data = await res.json();
+      if (res.ok) {
+        renderRegistrations(data.registrations);
+      } else {
+        alert('Failed to fetch registered events');
+      }
+    } catch (error) {
+      alert('Network error fetching registrations');
+      console.error(error);
+    }
+  }
+
+  function renderRegistrations(registrations) {
+    registeredEventsList.innerHTML = '';
+    if (!registrations || registrations.length === 0) {
+      registeredEventsList.innerHTML = '<p>No registered events found.</p>';
+      return;
+    }
+    registrations.forEach(reg => {
+      const evt = document.createElement('div');
+      evt.className = 'event-card';
+      evt.innerHTML = `
+        <div class="event-name">${reg.event_name}</div>
+        <div class="event-info"><strong>Status:</strong> ${reg.status}</div>
+        <div class="event-info"><strong>Start:</strong> ${new Date(reg.start_datetime).toLocaleString()}</div>
+        <div class="event-info"><strong>End:</strong> ${new Date(reg.end_datetime).toLocaleString()}</div>
+      `;
+      registeredEventsList.appendChild(evt);
+    });
+  }
+
+  async function registerEvent(eventId) {
+    try {
+      const res = await fetch('http://127.0.0.1:5000/registrations', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + currentToken,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ event_id: eventId })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        alert('Registration successful!');
+        await fetchAvailableEvents();
+        await fetchRegisteredEvents();
+      } else {
+        alert(data.message || 'Registration failed.');
+      }
+    } catch (error) {
+      alert('Error registering for event.');
+      console.error(error);
+    }
+  }
+
+  function showDashboard() {
+    loginSection.style.display = 'none';
+    dashboard.style.display = 'block';
+    logoutBtn.style.display = 'inline-block';
+  }
+
+  function showLogin() {
+    loginSection.style.display = 'block';
+    dashboard.style.display = 'none';
+    logoutBtn.style.display = 'none';
+  }
+
+  logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('token');
+    currentUser = null;
+    currentToken = null;
+    showLogin();
+  });
+
+  window.onload = () => {
+    currentToken = localStorage.getItem('token');
+    if (currentToken) {
+      // Try to fetch data to verify token
+      fetchAvailableEvents().then(() => {
+        showDashboard();
+      }).catch(() => {
+        // Invalid token or error
+        showLogin();
+      });
+      fetchRegisteredEvents();
+      fetchStudentInfo(); // currentUser.id unknown here, so fetch user from token payload later if needed
+    } else {
+      showLogin();
+    }
+  };
+</script>
+
+</body>
+</html>
