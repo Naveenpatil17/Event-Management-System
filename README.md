@@ -69,20 +69,11 @@ Manage users, events, venues, and generate event participation reports.
 
 ---
 ## ✨ Dashboard 
-<table>
-  <tr>
-    <td><img src="<img width="1903" height="914" alt="Screenshot 2025-09-07 024232" src="[https://github.com/user-attachments/assets/9dd05d43-1510-477f-a4e6-c2991d83b62a](https://github.com/Naveenpatil17/Event-Management-System/blob/main/Screenshot%202025-09-07%20024232.png)" />
-" alt="Image 1" width="250" /></td>
-    <td><img src="<img width="1898" height="901" alt="Screenshot 2025-09-07 023916" src="https://github.com/user-attachments/assets/1364d48c-4a86-45ae-bcf5-cf34fee8c66c" />
-" alt="Image 2" width="250" /></td>
-  </tr>
-  <tr>
-    <td><img src="<img width="1886" height="909" alt="Screenshot 2025-09-07 023955" src="https://github.com/user-attachments/assets/2f710644-eeab-4f06-b3cd-d35e515366f0" />
-" alt="Image 3" width="250" /></td>
-    <td><img src="<img width="1410" height="905" alt="Screenshot 2025-09-07 024054" src="https://github.com/user-attachments/assets/033ca379-2ab5-4a63-8d3b-1162d4422d65" />
-" alt="Image 4" width="250" /></td>
-  </tr>
-</table>
+<img width="1903" height="914" alt="Screenshot 2025-09-07 024232" src="https://github.com/user-attachments/assets/6b5f5c2e-6a14-4ffc-a274-edd35ae73266" />
+
+![WhatsApp Image 2025-09-07 at 02 40 05_4f6d98ef](https://github.com/user-attachments/assets/1029827f-53b0-4f0a-a31d-7e7a73c62560)
+
+
 
 
 ## 🗂️ Key Components
