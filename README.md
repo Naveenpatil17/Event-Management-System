@@ -1,63 +1,101 @@
-🎓 Campus Event Management System
-📌 Overview
+#🎓 Campus Event Management System
+##📌 Overview
 
 This project is a Campus Event Management System designed to facilitate the organization, registration, and management of campus events such as hackathons, workshops, seminars, and fests. It streamlines communication between students, colleges, and event organizers by providing a centralized platform for event discovery, registration, attendance tracking, and feedback collection.
 
-✨ Features
+##✨ Features
+###🔐 User Authentication
 
-🔐 User Authentication: Secure login and registration system with role-based access for students and admins.
+Secure login and registration system with role-based access for students and admins.
 
-📅 Event Management: Administration of various event types with detailed information and capacity limits.
+###📅 Event Management
 
-📝 Registration: Students can browse active events and register for those of interest.
+Administration of various event types with detailed information and capacity limits.
 
-🎟️ Attendance Tracking: Check-in and check-out system for tracking student participation at events.
+###📝 Registration
 
-⭐ Feedback Submission: Students can provide ratings and comments to help improve future events.
+Students can browse active events and register for those of interest.
 
-🔔 Notifications: System-generated messages notify users about event updates, registrations, and announcements.
+###🎟️ Attendance Tracking
 
-🏫 Venue Management: Events can be associated with multiple venues managed via the platform.
+Check-in and check-out system for tracking student participation at events.
 
-📊 Admin Dashboard (Planned): Manage users, events, venues, and generate event participation reports.
+###⭐ Feedback Submission
 
-🛠️ Technology Stack
+Students can provide ratings and comments to help improve future events.
 
-Backend: 🐍 Python (Flask)
+###🔔 Notifications
+
+System-generated messages notify users about event updates, registrations, and announcements.
+
+###🏫 Venue Management
+
+Events can be associated with multiple venues managed via the platform.
+
+###📊 Admin Dashboard (Planned)
+
+Manage users, events, venues, and generate event participation reports.
+
+##🛠️ Technology Stack
+###⚙️ Backend
+
+🐍 Python (Flask)
 
 📦 Libraries: PyMySQL, PyJWT, python-dotenv
 
-Database: 🗄️ MySQL
+###🗄️ Database
 
-Frontend: 🌐
+MySQL
 
-💻 HTML5, 🎨 CSS3, ⚡ JavaScript (ES6+)
+###🌐 Frontend
 
-📡 Fetch API for async calls, 📱 Responsive design with Flexbox/Grid, ✍️ Google Fonts for typography
+💻 HTML5
 
-Security: 🔒 SHA-256 for password hashing, 🔑 JWT for session tokens
+🎨 CSS3
 
-🗂️ Key Components
+⚡ JavaScript (ES6+)
 
-👤 Users Table: Stores user credentials and roles (student/admin).
+📡 Fetch API for async calls
 
-🎉 Events Table: Stores event details (type, timing, capacity, status).
+📱 Responsive design (Flexbox/Grid)
 
-📝 Registrations Table: Tracks student event registrations.
+####✍️ Google Fonts for typography
 
-⏱️ Attendance Table: Records check-in/out timestamps.
+###🔒 Security
 
-⭐ Feedback Table: Stores ratings and comments.
+SHA-256 for password hashing
 
-🏢 Venues & Event Venues: Manages physical event locations.
+JWT for session tokens
 
-📢 Notifications Table: Stores system-generated messages.
+##🗂️ Key Components
 
-🚀 Usage
+###👤 Users Table:
+Stores user credentials and roles (student/admin).
 
-⚙️ Setup the Database: Run provided SQL scripts to create tables and insert sample data.
+###🎉 Events Table: 
+Stores event details (type, timing, capacity, status).
 
-🖥️ Configure Flask Backend:
+###📝 Registrations Table: 
+Tracks student event registrations.
+
+###⏱️ Attendance Table:
+Records check-in/out timestamps.
+
+###⭐ Feedback Table:
+Stores ratings and comments.
+
+###🏢 Venues & Event Venues: 
+Manages physical event locations.
+
+###📢 Notifications Table:
+Stores system-generated messages.
+
+##🚀 Usage
+###1️⃣ Setup the Database
+
+Run provided SQL scripts to create tables and insert sample data.
+
+###2️⃣ Configure Flask Backend
 
 Set SECRET_KEY in .env.
 
@@ -65,7 +103,7 @@ Install dependencies → Flask, PyMySQL, PyJWT, python-dotenv.
 
 Run app.py.
 
-🌍 Frontend:
+###3️⃣ Frontend
 
 Open index.html in your browser.
 
@@ -73,9 +111,11 @@ Login with test users.
 
 Browse, register for events, and view your dashboard.
 
-🔧 Extensibility: Add more endpoints, improve frontend, or integrate mobile apps.
+###4️⃣ Extensibility
 
-📝 Development Notes
+Add more endpoints, improve frontend, or integrate mobile apps.
+
+##📝 Development Notes
 
 🔒 Passwords stored using SHA-256 hashing.
 
@@ -99,10 +139,6 @@ Browse, register for events, and view your dashboard.
 
 👫 Social features & richer user profiles.
 
-👨‍💻 Author
+##👨‍💻 Developer 
 
-✍️ [Your Name Here]
-
-📜 License
-
-🆓 This project is released under the MIT License – see the LICENSE file for details.
+###✍️ Naveen Patil
