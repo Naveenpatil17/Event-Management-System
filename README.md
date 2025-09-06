@@ -71,7 +71,7 @@ Manage users, events, venues, and generate event participation reports.
 ## ✨ Dashboard 
 <table>
   <tr>
-    <td><img src="<img width="1903" height="914" alt="Screenshot 2025-09-07 024232" src="https://github.com/user-attachments/assets/9dd05d43-1510-477f-a4e6-c2991d83b62a" />
+    <td><img src="<img width="1903" height="914" alt="Screenshot 2025-09-07 024232" src="[https://github.com/user-attachments/assets/9dd05d43-1510-477f-a4e6-c2991d83b62a](https://github.com/Naveenpatil17/Event-Management-System/blob/main/Screenshot%202025-09-07%20024232.png)" />
 " alt="Image 1" width="250" /></td>
     <td><img src="<img width="1898" height="901" alt="Screenshot 2025-09-07 023916" src="https://github.com/user-attachments/assets/1364d48c-4a86-45ae-bcf5-cf34fee8c66c" />
 " alt="Image 2" width="250" /></td>
